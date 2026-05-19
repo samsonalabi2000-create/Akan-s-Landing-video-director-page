@@ -1,0 +1,511 @@
+/* ==========================================
+   AKAN THE CREATOR — Custom CSS
+   Chrome / Industrial / Cinematic Aesthetic
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Mono:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --chrome-light: #e8e8e8;
+  --chrome-mid: #c8c8c8;
+  --chrome-dark: #8a8a8a;
+  --chrome-shine: #f5f5f5;
+  --obsidian: #080808;
+  --deep-black: #0d0d0d;
+  --surface: #161616;
+  --surface-2: #1e1e1e;
+  --surface-3: #252525;
+  --border: #2a2a2a;
+  --border-bright: #3a3a3a;
+  --gold: #d4a853;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #606060;
+  --accent: #c8c8c8;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb { background: #3a3a3a; }
+::-webkit-scrollbar-thumb:hover { background: var(--chrome-dark); }
+
+/* ===== SELECTION ===== */
+::selection { background: var(--chrome-dark); color: var(--chrome-light); }
+
+/* ===== CURSOR ===== */
+body { cursor: none; }
+a, button, [role="button"] { cursor: none; }
+
+#cursor {
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+}
+#cursor-dot {
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+body:has(a:hover) #cursor,
+body:has(button:hover) #cursor {
+  width: 36px;
+  height: 36px;
+  border-color: var(--chrome-mid);
+}
+
+/* ===== CHROME TEXT GRADIENT ===== */
+.chrome-text-gradient {
+  background: linear-gradient(
+    135deg,
+    #f5f5f5 0%,
+    #d0d0d0 20%,
+    #9a9a9a 40%,
+    #f0f0f0 60%,
+    #b0b0b0 80%,
+    #e8e8e8 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: chrome-shimmer 6s ease infinite;
+}
+
+@keyframes chrome-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== CHROME MONOGRAM ===== */
+.chrome-monogram {
+  background: linear-gradient(
+    180deg,
+    #f5f5f5 0%,
+    #c8c8c8 15%,
+    #7a7a7a 35%,
+    #e0e0e0 50%,
+    #9a9a9a 70%,
+    #d0d0d0 85%,
+    #6a6a6a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 40px rgba(200, 200, 200, 0.12));
+  text-shadow: none;
+}
+
+/* ===== CHROME BUTTON ===== */
+.chrome-btn {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.chrome-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+.chrome-btn:hover {
+  border-color: var(--chrome-dark);
+  color: var(--text-primary);
+  box-shadow: 0 0 20px rgba(200,200,200,0.08);
+}
+.chrome-btn:hover::before { transform: translateX(0); }
+.chrome-btn span, .chrome-btn { position: relative; z-index: 1; }
+
+/* Primary chrome button */
+.chrome-btn-primary {
+  background: linear-gradient(135deg, #3e3e3e 0%, #222222 50%, #303030 100%);
+  border: 1px solid #6a6a6a;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+.chrome-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, #d0d0d0, transparent);
+  opacity: 0.6;
+}
+.chrome-btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #606060 0%, #2e2e2e 50%, #505050 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.chrome-btn-primary:hover {
+  border-color: #9a9a9a;
+  box-shadow: 0 4px 24px rgba(200,200,200,0.15);
+}
+.chrome-btn-primary:hover::after { opacity: 1; }
+.chrome-btn-primary > * { position: relative; z-index: 1; }
+
+/* ===== NAVBAR ===== */
+#navbar.scrolled {
+  background: rgba(8, 8, 8, 0.96);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ===== GRID BACKGROUND ===== */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(200, 200, 200, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 200, 200, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== GRADIENT RADIAL ===== */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-via, transparent), var(--tw-gradient-to));
+}
+
+/* ===== MARQUEE ===== */
+.marquee-track {
+  animation: marquee-scroll 25s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== PORTFOLIO GRID HOVER ===== */
+.portfolio-item {
+  transition: transform 0.4s ease;
+}
+.portfolio-item:hover {
+  transform: scale(1.01);
+  z-index: 2;
+}
+
+/* Fix for both img and video */
+.portfolio-item img,
+.portfolio-item video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.portfolio-item:hover img,
+.portfolio-item:hover video {
+  transform: scale(1.05);
+}
+
+.portfolio-item:first-child img {
+  object-fit: cover;
+  background: #161616;
+}
+.portfolio-item:second-child img {
+  object-fit: cover;
+  background: #161616;
+}
+
+
+/* ===== FILTER BUTTONS ===== */
+.filter-btn {
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  color: var(--text-muted);
+}
+.filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+.filter-btn.active {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+.portfolio-item.hidden-item {
+  display: none;
+}
+
+/* ===== SERVICE TAGS ===== */
+.service-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  transition: all 0.3s ease;
+}
+.service-card:hover .service-tag {
+  color: var(--text-secondary);
+  border-color: var(--border-bright);
+}
+
+/* ===== SCROLL REVEAL ===== */
+[data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-scroll-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SKILL FILL ===== */
+.skill-fill {
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== LENS IRIS PULSE ===== */
+.lens-iris {
+  animation: lens-pulse 4s ease-in-out infinite;
+}
+@keyframes lens-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ===== SCROLL LINE ===== */
+.scroll-line {
+  animation: scroll-drop 2s ease-in-out infinite;
+}
+@keyframes scroll-drop {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+/* ===== HERO LOGO REVEAL ===== */
+.hero-logo {
+  animation: logo-reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes logo-reveal {
+  0% { opacity: 0; transform: scale(0.9) translateY(10px); filter: blur(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+/* ===== AKAN LOGO IMAGE ===== */
+.akan-logo-img {
+  filter: drop-shadow(0 0 20px rgba(200, 200, 200, 0.2));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.akan-logo-img:hover {
+  filter: drop-shadow(0 0 35px rgba(200, 200, 200, 0.35));
+  transform: scale(1.02);
+}
+
+/* ===== FORM STYLES ===== */
+input, textarea, select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 1px rgba(200, 200, 200, 0.15);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* ===== MOBILE MENU ===== */
+#mobile-menu.open {
+  transform: translateX(0);
+}
+#menu-toggle.active .menu-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+#menu-toggle.active .menu-bar:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle.active .menu-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  width: 24px;
+  margin-left: 0;
+}
+.menu-bar { transition: all 0.3s ease; }
+
+/* ===== ABOUT VISUAL FRAME ===== */
+.about-visual::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== NOISE TEXTURE OVERLAY ===== */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}
+
+/* ===== LOGO CHROME RING ===== */
+.logo-chrome-ring {
+  animation: ring-spin-pause 8s ease-in-out infinite;
+}
+@keyframes ring-spin-pause {
+  0%, 70% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== COUNTER ===== */
+.counter {
+  display: inline-block;
+  min-width: 3ch;
+}
+
+/* ===== STAT ITEMS ===== */
+.stat-item::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--border-bright);
+  margin: 12px auto 0;
+}
+
+/* ===== HOVER LIFT ===== */
+.service-card {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.service-card:hover { transform: translateY(-2px); }
+
+/* ===== TESTIMONIAL CARD ===== */
+.testimonial-card {
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  color: var(--surface-3);
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  line-height: 1;
+}
+
+/* ===== FORM SUCCESS ===== */
+#form-status.success { color: #6a9a6a; }
+#form-status.error { color: #9a5a5a; }
+
+/* ===== NAV LINKS ===== */
+.nav-link {
+  position: relative;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-secondary);
+  transition: width 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.social-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--surface-2);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.social-icon:hover {
+  color: var(--text-primary);
+  border-color: var(--chrome-dark);
+}
+.social-icon:hover::before {
+  transform: translateY(0);
+}
+.social-icon svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ===== CONTACT INFO LINKS ===== */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+.contact-link:hover .contact-icon {
+  border-color: var(--chrome-dark);
+}
+.contact-link:hover .contact-text {
+  color: var(--chrome-light);
+}
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+.contact-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .portfolio-grid { gap: 2px; }
+  body { cursor: auto; }
+  #cursor, #cursor-dot { display: none; }
+}
