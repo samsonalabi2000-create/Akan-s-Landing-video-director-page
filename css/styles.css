@@ -218,7 +218,19 @@ body:has(button:hover) #cursor {
   object-fit: cover;
   background: #161616;
 }
-
+ /* For item 1  */
+ @media (min-width: 768px) {
+        .item1-inner {
+          position: relative;
+          padding-top: 0;
+          min-height: 600px;
+        }
+        .item1-img {
+          position: absolute;
+          inset: 0;
+          height: 100%;
+        }
+      }
 
 /* ===== FILTER BUTTONS ===== */
 .filter-btn {

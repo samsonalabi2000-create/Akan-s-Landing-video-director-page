@@ -196,8 +196,8 @@
   .pointer-events-none {
     pointer-events: none;
   }
-  .collapse {
-    visibility: collapse;
+  .invisible {
+    visibility: hidden;
   }
   .absolute {
     position: absolute;
@@ -355,14 +355,8 @@
   .mb-14 {
     margin-bottom: calc(var(--spacing) * 14);
   }
-  .mb-15 {
-    margin-bottom: calc(var(--spacing) * 15);
-  }
   .mb-16 {
     margin-bottom: calc(var(--spacing) * 16);
-  }
-  .mb-25 {
-    margin-bottom: calc(var(--spacing) * 25);
   }
   .ml-auto {
     margin-left: auto;
@@ -390,9 +384,6 @@
   }
   .aspect-\[3\/4\] {
     aspect-ratio: 3/4;
-  }
-  .aspect-\[4\/3\] {
-    aspect-ratio: 4/3;
   }
   .aspect-\[4\/5\] {
     aspect-ratio: 4/5;
@@ -444,9 +435,6 @@
   }
   .h-px {
     height: 1px;
-  }
-  .min-h-\[600px\] {
-    min-height: 600px;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -804,9 +792,6 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
-  .px-1 {
-    padding-inline: calc(var(--spacing) * 1);
-  }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
@@ -818,9 +803,6 @@
   }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
-  }
-  .px-15 {
-    padding-inline: calc(var(--spacing) * 15);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -849,20 +831,11 @@
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
   }
-  .pt-1 {
-    padding-top: calc(var(--spacing) * 1);
-  }
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-7 {
-    padding-top: calc(var(--spacing) * 7);
-  }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
-  }
-  .pt-15 {
-    padding-top: calc(var(--spacing) * 15);
   }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
@@ -881,9 +854,6 @@
   }
   .font-\[\'Space_Mono\'\] {
     font-family: 'Space Mono';
-  }
-  .font-\[\\\'Space_Mono\\\'\] {
-    font-family: \'Space Mono\';
   }
   .font-serif {
     font-family: var(--font-serif);
@@ -1274,16 +1244,6 @@
   .md\:hidden {
     @media (width >= 48rem) {
       display: none;
-    }
-  }
-  .md\:aspect-auto {
-    @media (width >= 48rem) {
-      aspect-ratio: auto;
-    }
-  }
-  .md\:h-full {
-    @media (width >= 48rem) {
-      height: 100%;
     }
   }
   .md\:grid-cols-2 {
